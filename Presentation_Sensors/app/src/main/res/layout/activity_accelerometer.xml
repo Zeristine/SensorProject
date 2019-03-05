@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AccelerometerActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txtCurX"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:text="Current X = "/>
+    <TextView
+        android:id="@+id/txtCurY"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:text="Current Y= "/>
+    <TextView
+        android:id="@+id/txtCurZ"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:text="Current Z = "/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#212121"
+        />
+    <TextView
+        android:id="@+id/txtMaxX"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:text="Max X = "/>
+    <TextView
+        android:id="@+id/txtMaxY"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:text="Max Y= "/>
+    <TextView
+        android:id="@+id/txtMaxZ"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:text="Max Z = "/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#212121"
+        />
+
+</LinearLayout>
