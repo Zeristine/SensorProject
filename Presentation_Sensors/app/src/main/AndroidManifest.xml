@@ -13,9 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AccelerometerActivity"
-            android:screenOrientation="portrait"
-            ></activity>
+        <activity android:name=".GyroscopeActivity" android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".AccelerometerActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".PressureActivity" />
         <activity android:name=".HumidityActivity" />
         <activity android:name=".SensorsListActivity" />

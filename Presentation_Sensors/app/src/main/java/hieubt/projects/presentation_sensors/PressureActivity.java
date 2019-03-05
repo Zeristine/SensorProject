@@ -13,34 +13,33 @@ public class PressureActivity extends AppCompatActivity {
 
     private SensorManager sensorManager;
     private Sensor pressureSensor;
-    private SensorEventListener pressureSensorEvent;
+    private SensorEventListener pressureSensorEvent = new SensorEventListener() {
+        @Override
+        public void onSensorChanged(SensorEvent event) {
+            float[] values = event.values;
+            txt.setText(String.format("%.3f mbar",values[0]));
+        }
+
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+        }
+    };
+    private TextView txt;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pressure);
+        txt = findViewById(R.id.txt);
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         pressureSensor = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
 
         if(pressureSensor==null){
-            Toast.makeText(this, "No Humidity Sensor available", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "No Pressure Sensor available", Toast.LENGTH_SHORT).show();
             finish();
         }
-
-        pressureSensorEvent = new SensorEventListener() {
-            @Override
-            public void onSensorChanged(SensorEvent event) {
-                getSupportActionBar().setTitle("Pressure Value : " + event.values[0] + "hPa");
-            }
-
-            @Override
-            public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
-            }
-        };
-
-        sensorManager.registerListener(pressureSensorEvent, pressureSensor, SensorManager.SENSOR_DELAY_FASTEST);
     }
 
     @Override
@@ -49,4 +48,9 @@ public class PressureActivity extends AppCompatActivity {
         sensorManager.unregisterListener(pressureSensorEvent);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        sensorManager.registerListener(pressureSensorEvent, pressureSensor, SensorManager.SENSOR_DELAY_UI);
+    }
 }
